@@ -58,7 +58,7 @@ if (form) {
 
             createGallery(data.hits);
 
-            const totalPages = Math.ceil(totalHits / 15);
+            const totalPages = Math.ceil(totalHits /  PER_PAGE);
 
             if (currentPage < totalPages) {
                 showLoadMoreButton();

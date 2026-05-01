@@ -15,8 +15,8 @@ export function createGallery(images) {
 
 
     const markup = images
-    .map(
-        img => `
+        .map(
+            img => `
         <li class="gallery-item">
         <a class="item-link" href="${img.largeImageURL}">
             <img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}" />
@@ -29,47 +29,43 @@ export function createGallery(images) {
         </div>
         </li>
     `
-    )
-    .join('');
+        )
+        .join('');
 
     gallery.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh();
 
-    if (typeof lightbox !== 'undefined') {
-        lightbox.refresh();
+    export function clearGallery() {
+        if (gallery) {
+            gallery.innerHTML = '';
+        }
+    }
+
+    export function showLoader() {
+        if (loader) {
+            loader.classList.add('active');
+        }
+    }
+
+    export function hideLoader() {
+        if (loader) {
+            loader.classList.remove('active');
+        }
+    }
+
+    export function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    export function showLoadMoreButton() {
+        if (loadMoreButton) {
+            loadMoreButton.classList.add('is-visible');
+        }
+    }
+
+    export function hideLoadMoreButton() {
+        if (loadMoreButton) {
+            loadMoreButton.classList.remove('is-visible');
+        }
     }
 }
-
-export function clearGallery() {
-    gallery.innerHTML = '';
-    if (gallery) {
-        gallery.innerHTML = '';
-    }
-}
-
-export function showLoader() {
-    document.querySelector('.loader').classList.add('active');
-    if (loader) {
-        loader.classList.add('active');
-    }
-}
-
-export function hideLoader() {
-    document.querySelector('.loader').classList.remove('active');
-    if (loader) {
-        loader.classList.remove('active');
-    }
-}
-
-export function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-export function showLoadMoreButton() {
-    loadMoreButton.classList.add('is-visible');
-}
-
-export function hideLoadMoreButton() {
-    loadMoreButton.classList.remove('is-visible');
-}
-
