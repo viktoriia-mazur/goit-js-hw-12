@@ -34,6 +34,7 @@ export function createGallery(images) {
 
     gallery.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh();
+    }
 
     export function clearGallery() {
         if (gallery) {
@@ -68,4 +69,4 @@ export function createGallery(images) {
             loadMoreButton.classList.remove('is-visible');
         }
     }
-}
+
