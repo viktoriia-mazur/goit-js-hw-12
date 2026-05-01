@@ -1,7 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { getImagesByQuery } from './js/pixabay-api.js';
+import { getImagesByQuery, PER_PAGE } from './js/pixabay-api.js';
 import {
     createGallery,
     clearGallery,
@@ -90,7 +90,7 @@ if (form) {
 
             createGallery(data.hits);
 
-            const totalPages = Math.ceil(totalHits / 15);
+            const totalPages = Math.ceil(totalHits / PER_PAGE);
 
             if (currentPage < totalPages) {
                 showLoadMoreButton();
